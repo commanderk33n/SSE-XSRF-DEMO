@@ -4,6 +4,11 @@ session_start();
 
 if (isset($_SESSION['login'])) {
   ?>
+  <html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
   <a href="logout.php">Get out</a><br />
   <?php
   echo "You are logged in with session id: <br />".session_id()."<br />";
@@ -29,5 +34,7 @@ if (isset($_SESSION['login'])) {
 else {
   echo "You are not logged in.<br />";
   echo "<a href=index.php>Login</a><br />";
+  echo "</body>";
+  echo "</html>";
 }
 ?>

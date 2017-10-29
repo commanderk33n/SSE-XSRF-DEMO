@@ -13,7 +13,9 @@ if (!isset($_SESSION['login'])) {
   ?>
 
   <html>
-  <head></head>
+  <head>
+     <link rel="stylesheet" href="style.css">
+  </head>
   <body>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       Username:
