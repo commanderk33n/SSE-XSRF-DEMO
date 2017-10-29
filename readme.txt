@@ -1,13 +1,17 @@
 ###############################################################################
 ### A simple example of Cross-site request forgery attack using PHP
 
-## In order for the attack to be successful, there must be some requirement:
+## File Descriptions:
+# WebApp with xsrf-vulnerability:
+#   - index.php, content.php, logout.php
+# Malicious Website/link:
+#   - mal.php
 
+## In order for the attack to be successful, there must be some requirement:
 # - The victim (user) must be logged in and active on the target website
 # - The victim is tricked to visit a page created by attacker.
 
 ## Preventing against XSRF:
-
 # Using secret token:
 # To protect against the attack above, we need to make sure that the request sent
 # to server is actually sent by the real user. In other words, we need to
@@ -16,7 +20,7 @@
 # when user logs into the system and send with it  in every message.
 
 $_SESSION['csrf_token'] = randomize_token();
-echo “<input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">”
+echo "<input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">"
 
 function randomize_token() {
 //Create token here
