@@ -8,8 +8,8 @@
 #   - mal.php
 
 ## In order for the attack to be successful, there must be some requirement:
-# - The victim (user) must be logged in and active on the target website
-# - The victim is tricked to visit a page created by attacker.
+#   - The victim (user) must be logged in and active on the target website
+#   - The victim is tricked to visit a page created by attacker.
 
 ## Preventing against XSRF:
 # To protect against the attack above, we need to make sure that the request sent
@@ -17,19 +17,20 @@
 # authenticate the user. We can achive authentication by sending a token along
 # with the request. In order for the token to be secret, it should be randomized
 # when user logs into the system and send with it in every message.
-
-$_SESSION['csrf_token'] = randomize_token();
+# Example:
+  $_SESSION['csrf_token'] = randomize_token();
+  
 echo "<input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">"
 
-function randomize_token() {
-//Create token here
-}
+  function randomize_token() {
+  //Create token here
+  }
 
 ### EXERCISE:
 ### How to secure the logout function?
 
 # By dynamically randomization of the token, we can also avoid the brute force
-# attack on the token, It is also advisable to give the token an expiration time. 
+# attack on the token. It is also advisable to give the token an expiration time. 
 # We can also encrypt the token before sending request in order to protect the
 # token from being sniffed by attacker.
 
