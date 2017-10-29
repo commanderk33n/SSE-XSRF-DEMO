@@ -3,11 +3,9 @@ $user_name = 'Guest';
 session_start();
 
 if(($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['username']))) {
-  if (true) {
     $_SESSION['login'] = 1;
     $user_name = $_POST['username'];
     $_SESSION['csrf_token'] = uniqid('', true);
-  }
 }
 echo "Welcome $user_name </br>";
 
