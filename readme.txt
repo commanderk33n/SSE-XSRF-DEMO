@@ -23,10 +23,10 @@
  # We can also encrypt the token before sending request in order to protect the
  # token from being sniffed by attacker.
 
- # Another trick that can limit attacker’s probability of successful is to ask
- # for CAPTCHA or to ask for user to re-log in before a important action. It is a
- # little bit annoying when we have to log in for each 20 minutes but it is worth
- # considering when you are managing a banking system or action such as changing
+ # Another trick that can limit attacker’s probability of being successful,
+ # is to ask for CAPTCHA or to ask for user to re-log in before a important action. 
+ # It is a little bit annoying when we have to log in for every 20 minutes but it is 
+ # worth considering when you are managing a banking system or action such as changing
  # password.
  
  # Example:
