@@ -5,6 +5,7 @@ session_start();
 if(($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['username']))) {
     $_SESSION['login'] = 1;
     $user_name = $_POST['username'];
+    // Secret token 
     $_SESSION['csrf_token'] = uniqid('', true);
 }
 echo "Welcome $user_name </br>";

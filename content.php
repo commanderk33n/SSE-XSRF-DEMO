@@ -23,10 +23,12 @@ if (isset($_SESSION['login'])) {
   if(isset($_GET['write'])) {
     $myFile='text';
     $fh = fopen($myFile, 'a') or die("can’t open file");
+    // check if request got csrf_token from session
     if ($_GET['csrf'] == $_SESSION['csrf_token']) {
       fwrite($fh, $_GET['write']."\n");
       echo $_GET['write']." has been written down on file";
     } else {
+      // csrf_token wrong or not available
       die("Wrong Token!!");
     }
   }
