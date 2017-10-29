@@ -12,12 +12,11 @@
 # - The victim is tricked to visit a page created by attacker.
 
 ## Preventing against XSRF:
-# Using secret token:
 # To protect against the attack above, we need to make sure that the request sent
 # to server is actually sent by the real user. In other words, we need to
-# authenticate the user. We can archive authentication by sending a token along
+# authenticate the user. We can achive authentication by sending a token along
 # with the request. In order for the token to be secret, it should be randomized
-# when user logs into the system and send with it  in every message.
+# when user logs into the system and send with it in every message.
 
 $_SESSION['csrf_token'] = randomize_token();
 echo "<input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">"
@@ -30,8 +29,9 @@ function randomize_token() {
 ### How to secure the logout function?
 
 # By dynamically randomization of the token, we can also avoid the brute force
-# attack on the token. We can also encrypt the token before sending request
-# in order to protect the token from being sniffed by attacker.
+# attack on the token, It is also advisable to give the token an expiration time. 
+# We can also encrypt the token before sending request in order to protect the
+# token from being sniffed by attacker.
 
 # Another trick that can limit attacker’s probability of successful is to ask
 # for CAPTCHA or to ask for user to re-log in before a important action. It is a
