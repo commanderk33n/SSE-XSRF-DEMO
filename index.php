@@ -8,8 +8,9 @@ if(($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['username']))) {
     // Secret token to prevent XSRF vulnerability
     $_SESSION['csrf_token'] = uniqid('', true);
 }
-echo "</br>SPARKASSE - ONLINE-BANKING - LOGIN</br>";
+echo "WoodgroveBank:  ONLINE-BANKING</br>";
 echo "Welcome $user_name!</br>";
+echo "</br>Login:";
 
 if (!isset($_SESSION['login'])) {
   ?>
