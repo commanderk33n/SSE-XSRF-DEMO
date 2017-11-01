@@ -17,6 +17,7 @@ if (isset($_SESSION['login'])) {
   echo "You secret token is: <br />" .$_SESSION['csrf_token']. "<br />";
   ?>
   <form action="content.php" method="GET">
+    <!-- hidden input field to pass the csrf_token -->
     <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">
     <input type="number" name="transfer" />
     <input type="submit" value="Transfer Money (€)"/>

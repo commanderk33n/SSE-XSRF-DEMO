@@ -5,7 +5,7 @@ session_start();
 if(($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['username']))) {
     $_SESSION['login'] = 1;
     $user_name = $_POST['username'];
-    // Secret token to prevent XSRF vulnerability
+    // generate secret token to prevent XSRF vulnerability
     $_SESSION['csrf_token'] = uniqid('', true);
 }
 echo "WoodgroveBank:  ONLINE-BANKING</br>";
@@ -23,7 +23,7 @@ if (!isset($_SESSION['login'])) {
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       Username:
       <input type="text" name="username"> <br />
-      <input type="submit" name="submit" value="Log in">
+      <input type="submit" name="submit" value="Login">
     </form>
   </body>
   </html>

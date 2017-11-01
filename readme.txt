@@ -17,29 +17,29 @@
  # authenticate the user. We can achive authentication by sending a token along
  # with the request. In order for the token to be secret, it should be randomized
  # when user logs into the system and send with it in every message.
- 
+
  # By dynamically randomization of the token, we can also avoid the brute force
- # attack on the token. It is also advisable to give the token an expiration time. 
+ # attack on the token. It is also advisable to give the token an expiration time.
  # We can also encrypt the token before sending request in order to protect the
  # token from being sniffed by attacker.
 
  # Another trick that can limit attacker’s probability of being successful,
- # is to ask for CAPTCHA or to ask for user to re-log in before a important action. 
- # It is a little bit annoying when we have to log in for every 20 minutes but it is 
+ # is to ask for CAPTCHA or to ask for user to re-log in before a important action.
+ # It is a little bit annoying when we have to log in for every 20 minutes but it is
  # worth considering when you are managing a banking system or action such as changing
  # password.
- 
+
  # Example:
- 
+
  # create random token:
   $_SESSION['csrf_token'] = randomize_token();
   function randomize_token() {
   //Create token here
   }
-  
- # insert hidden field in form:  
+
+ # insert hidden field in form:
 echo "<input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">"
 
-### EXERCISE:
+### EXERCISE (see logout.php):
 ### How to secure the logout function?
 #################################################################################
