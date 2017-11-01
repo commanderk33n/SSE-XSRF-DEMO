@@ -6,8 +6,8 @@ form {
     margin: 12px 0;
 }
 
-input[type=text] {
-    width: 50%;
+input {
+    width: 70%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;

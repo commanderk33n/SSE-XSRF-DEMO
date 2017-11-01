@@ -5,14 +5,15 @@ session_start();
 if(($_SERVER['REQUEST_METHOD'] == 'POST') && (isset($_POST['username']))) {
     $_SESSION['login'] = 1;
     $user_name = $_POST['username'];
-    // Secret token 
+    // Secret token to prevent XSRF vulnerability
     $_SESSION['csrf_token'] = uniqid('', true);
 }
-echo "Welcome $user_name </br>";
+echo "</br>SPARKASSE - ONLINE-BANKING - LOGIN</br>";
+echo "Welcome $user_name!</br>";
 
 if (!isset($_SESSION['login'])) {
   ?>
-
+  <!DOCTYPE html>
   <html>
   <head>
      <link rel="stylesheet" href="style.css">

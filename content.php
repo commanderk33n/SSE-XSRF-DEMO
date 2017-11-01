@@ -4,29 +4,31 @@ session_start();
 
 if (isset($_SESSION['login'])) {
   ?>
+  <!DOCTYPE html>
   <html>
   <head>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <a href="logout.php">Get out</a><br />
+  <a href="logout.php">Logout!</a><br />
   <?php
+  echo "<br />Security-Information: <br />";
   echo "You are logged in with session id: <br />".session_id()."<br />";
   echo "You secret token is: <br />" .$_SESSION['csrf_token']. "<br />";
   ?>
   <form action="content.php" method="GET">
     <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">
-    <input type="text" name="write" />
-    <input type="submit" value="Write this"/>
+    <input type="number" name="transfer" />
+    <input type="submit" value="Transfer Money (€)"/>
   </form>
   <?php
-  if(isset($_GET['write'])) {
-    $myFile='text';
+  if(isset($_GET['transfer'])) {
+    $myFile='accountLog';
     $fh = fopen($myFile, 'a') or die("can’t open file");
     // check if request got csrf_token from session
     if ($_GET['csrf'] == $_SESSION['csrf_token']) {
-      fwrite($fh, $_GET['write']."\n");
-      echo $_GET['write']." has been written down on file";
+      fwrite($fh, $_GET['transfer']."\n");
+      echo $_GET['transfer']." € has been transfered to another bank account!";
     } else {
       // csrf_token wrong or not available
       die("Wrong Token!!");
