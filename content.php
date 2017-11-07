@@ -14,11 +14,11 @@ if (isset($_SESSION['login'])) {
   <?php
   echo "<br />Security-Information: <br />";
   echo "You are logged in with session id: <br />".session_id()."<br />";
-  echo "You secret token is: <br />" .$_SESSION['csrf_token']. "<br />";
+  //echo "You secret token is: <br />" .$_SESSION['csrf_token']. "<br />";
   ?>
   <form action="content.php" method="GET">
-    <!-- hidden input field to pass the csrf_token -->
-    <input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">
+    <!-- insert hidden input field to pass the csrf_token -->
+
     <input type="number" name="transfer" />
     <input type="submit" value="Transfer Money (€)"/>
   </form>
@@ -27,13 +27,13 @@ if (isset($_SESSION['login'])) {
     $myFile='accountLog';
     $fh = fopen($myFile, 'a') or die("can’t open file");
     // check if request got csrf_token from session
-    if ($_GET['csrf'] == $_SESSION['csrf_token']) {
+    //if ($_GET['csrf'] == $_SESSION['csrf_token']) {
       fwrite($fh, $_GET['transfer']."\n");
       echo $_GET['transfer']." € has been transfered to another bank account!";
-    } else {
+    //} else {
       // csrf_token wrong or not available
-      die("Wrong Token!!");
-    }
+      //die("Wrong Token!!");
+    //}
   }
 }
 else {

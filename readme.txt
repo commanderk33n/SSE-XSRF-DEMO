@@ -38,7 +38,7 @@
   }
 
  # insert hidden field in form:
-echo "<input type="hidden" name="csrf" value="<?php echo $_SESSION['csrf_token']; ?>">"
+echo "<input type="hidden" name="csrf" value="<?php $_SESSION['csrf_token']; ?>">"
 
 ### EXERCISE (see logout.php):
 ### How to secure the logout function?
